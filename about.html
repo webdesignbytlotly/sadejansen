@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO OPTIMIZATION START -->
+    <title>Sadé Jansen | Couture Designer & Bespoke Wedding Gown Specialist, Bloemfontein, SA</title>
+    
+    <!-- Optimized Meta Description (Critical for Click-Through Rate) -->
+    <meta name="description" content="Meet Sadé Jansen, a leading couture designer specializing in bespoke wedding gowns, matric farewell, and evening wear in Bloemfontein, South Africa. Discover her vision for timeless elegance and custom creations." />
+    
+    <!-- Canonical Tag (Crucial for preventing duplicate content issues) -->
+    <link rel="canonical" href="https://sadefashiondesigner.co.za/about.html" />
+    
+    <!-- Open Graph Tags for Social Sharing (Facebook, LinkedIn, etc.) -->
+    <meta property="og:title" content="Meet Sadé Jansen | Couture Designer, Bloemfontein, South Africa" />
+    <meta property="og:description" content="South African Couture Designer Sadé Jansen specializes in custom, luxurious wedding gowns, matric farewell, and evening wear. Book your bespoke consultation." />
+    <meta property="og:type" content="profile" />
+    <meta property="og:url" content="https://sadefashiondesigner.co.za/about.html" />
+    <meta property="og:image" content="https://sadefashiondesigner.co.za/assets/sade.jpg" />
+    <meta property="og:site_name" content="SADÉ JANSEN Fashion Designer" />
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sadé Jansen Couture Designer" />
+    <meta name="twitter:description" content="Bespoke designer of wedding dresses and evening wear based in Bloemfontein, South Africa." />
+    <meta name="twitter:image" content="https://sadefashiondesigner.co.za/assets/sade.jpg" />
+    
+    <!-- Structured Data (JSON-LD) for Schema Markup - Identifies the designer/business to search engines -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Sadé Jansen",
+      "jobTitle": "Couture Designer & Bespoke Specialist",
+      "url": "https://sadefashiondesigner.co.za/about.html",
+      "image": "https://sadefashiondesigner.co.za/assets/sade.jpg",
+      "description": "Sadé Jansen is a South African couture designer based in Bloemfontein, specializing in custom, luxurious bridal and evening wear.",
+      "sameAs": [
+        "https://www.facebook.com/SadeJansenDesigner",
+        "https://instagram.com/sade_jansen_designer",
+        "https://sadefashiondesigner.co.za/"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bloemfontein",
+        "addressRegion": "Free State",
+        "addressCountry": "ZA"
+      },
+      "worksFor": {
+        "@type": "LocalBusiness",
+        "name": "SADÉ JANSEN Fashion Designer"
+      }
+    }
+    </script>
+    <!-- SEO OPTIMIZATION END -->
+    
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Load Google Fonts for Bodoni (using Prata as substitute) and Montserrat Light -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Prata:ital@0;1&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Define custom font classes - IDENTICAL TO INDEX.HTML */
+        .font-bodoni { 
+            font-family: 'Prata', serif; 
+            font-weight: 300; 
+            letter-spacing: 0.05em; 
+        }
+        .font-bodoni-italic {
+            font-family: 'Prata', serif;
+            font-style: italic;
+            font-weight: 300;
+        }
+        .font-montserrat { 
+            font-family: 'Montserrat', sans-serif; 
+            font-weight: 300; 
+        }
+
+        /* Custom thin hamburger/close icon lines */
+        .icon-line {
+            height: 2px; 
+            background-color: black;
+            transition: all 0.3s ease-in-out;
+            position: absolute;
+            width: 139%;
+            left: 0;
+        }
+
+        /* Mobile icon swap container */
+        #mobile-menu-btn .icon-wrapper {
+            width: 24px;
+            height: 24px;
+            position: relative; 
+            position: absolute;
+            right: 0; 
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Hamburger lines positioning */
+        #mobile-menu-btn .line-top { top: 0px; }
+        #mobile-menu-btn .line-middle { top: 11px; }
+        #mobile-menu-btn .line-bottom { top: 22px; }
+
+        /* Transform lines into X */
+        .menu-is-open #mobile-menu-btn .line-top {
+            transform: translateY(11px) rotate(45deg); 
+        }
+        .menu-is-open #mobile-menu-btn .line-middle {
+            opacity: 0; 
+        }
+        .menu-is-open #mobile-menu-btn .line-bottom {
+            transform: translateY(-11px) rotate(-45deg); 
+        }
+
+        /* Shop SADÉ link style */
+        .shop-sade-link {
+            font-family: 'Prata', serif;
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        /* Image Logo Styling */
+        .image-logo {
+            max-height: 55px; 
+            width: auto;
+        }
+        @media (min-width: 768px) { 
+            .image-logo {
+                max-height: 65px; 
+            }
+        }
+
+        /* Full-screen promo modal container (visible on load) */
+        #promo-modal-overlay.is-visible {
+            display: flex;
+        }
+        
+        /* Form field style: thin line under the title - WHITE version for the modal */
+        .form-line-input-white {
+            border: none;
+            border-bottom: 1px solid #ffffff; /* White line */
+            padding: 4px 0;
+            outline: none;
+            width: 100%;
+            transition: border-bottom-color 0.2s;
+            font-size: 1rem;
+            color: white; /* White text */
+            background-color: transparent; /* Transparent background */
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+        }
+        .form-line-input-white:focus {
+            border-bottom-color: #e5e7eb; /* Light gray on focus */
+        }
+    </style>
+</head>
+<body class="font-montserrat text-gray-900 antialiased bg-white">
+
+    <!-- Primary Header -->
+    <header class="sticky top-0 bg-white px-4 py-3" style="z-index:9998;">
+        <div class="container mx-auto flex items-center justify-between relative">
+            
+            <!-- Logo (Image) -->
+            <a href="index.html" class="flex items-center">
+                <img src="assets/logo1.jpg" alt="SADÉ JANSEN Fashion Designer Logo - Bloemfontein Couture" class="image-logo" onerror="this.onerror=null; this.src='https://placehold.co/220x65/fff/333?text=SADÉ+JANSEN'">
+            </a>
+
+            <!-- Desktop Menu (Visible on md and up) -->
+            <nav class="hidden md:flex items-center space-x-8 lg:space-x-12">
+                <a href="index.html" class="uppercase text-sm hover:text-gray-500 font-montserrat transition duration-150 ease-in-out">Home</a>
+                <!-- Highlight 'About' link as current page -->
+                <a href="about.html" class="uppercase text-sm text-gray-500 font-montserrat transition duration-150 ease-in-out border-b border-gray-500">About</a>
+                
+                <!-- Collections Dropdown -->
+                <div class="group relative">
+                    <button class="uppercase text-sm hover:text-gray-500 font-montserrat flex items-center transition duration-150 ease-in-out">
+                        Collections 
+                        <svg class="ml-1 w-3 h-3 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <!-- Submenu -->
+                    <div class="absolute hidden group-hover:block pt-3 min-w-[180px] z-50 left-1/2 transform -translate-x-1/2">
+                        <div class="bg-white ring-1 ring-black ring-opacity-5 p-2 font-montserrat text-center border border-gray-200">
+                            <a href="weddings.html" class="block px-4 py-2 text-sm uppercase text-gray-900 hover:bg-gray-100 transition duration-100">Weddings</a>
+                            <a href="matric-farewell.html" class="block px-4 py-2 text-sm uppercase text-gray-900 hover:text-gray-500 transition duration-100">Matric Farewell</a>
+                            <a href="evening-wear.html" class="block px-4 py-2 text-sm uppercase text-gray-900 hover:bg-gray-100 transition duration-100">Evening Wear</a>
+                            <a href="customs.html" class="block px-4 py-2 text-sm uppercase text-gray-900 hover:bg-gray-100 transition duration-100">Custom Designs</a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="shopsade/index.html" class="text-sm hover:text-gray-500 shop-sade-link transition duration-150 ease-in-out">Shop SADÉ</a>
+                <a href="blog.html" class="uppercase text-sm hover:text-gray-500 font-montserrat transition duration-150 ease-in-out">Blog</a>
+                <a href="contact.html" class="uppercase text-sm hover:text-gray-500 font-montserrat transition duration-150 ease-in-out">Contact</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 relative w-[140px] h-12" style="z-index:9999;" aria-label="Toggle Menu">
+                <div class="icon-wrapper">
+                    <div class="icon-line line-top"></div>
+                    <div class="icon-line line-middle"></div>
+                    <div class="icon-line line-bottom"></div>
+                </div>
+            </button>
+        </div>
+    </header>
+
+    <!-- Full-Screen Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-white z-50 hidden transition-all duration-300 ease-in-out flex flex-col items-center pt-24 pb-8 overflow-y-auto">
+        
+        <nav class="text-center space-y-6 w-full max-w-sm">
+            <a href="index.html" class="block text-3xl font-montserrat uppercase text-gray-900 hover:text-gray-500" onclick="toggleMobileMenu()">Home</a>
+            <a href="about.html" class="block text-3xl font-montserrat uppercase text-gray-500" onclick="toggleMobileMenu()">About</a>
+            
+            <!-- Collections Section -->
+            <div class="text-center">
+                <button id="mobile-collections-btn" class="text-3xl font-montserrat uppercase text-gray-900 hover:text-gray-500 mb-2 transition duration-150">
+                    Collections
+                </button>
+                <div id="mobile-collections-submenu" class="space-y-3 mt-3 hidden">
+                    <a href="weddings.html" class="block text-xl font-montserrat uppercase text-gray-900 hover:text-gray-500 transition duration-150" onclick="toggleMobileMenu()">Weddings</a>
+                    <a href="matric-farewell.html" class="block text-xl font-montserrat uppercase text-gray-900 hover:text-gray-500 transition duration-150" onclick="toggleMobileMenu()">Matric Farewell</a>
+                    <a href="evening-wear.html" class="block text-xl font-montserrat uppercase text-gray-900 hover:text-gray-500 transition duration-150" onclick="toggleMobileMenu()">Evening Wear</a>
+                    <a href="customs.html" class="block text-xl font-montserrat uppercase text-gray-900 hover:text-gray-500 transition duration-150" onclick="toggleMobileMenu()">Custom Designs</a>
+                </div>
+            </div>
+
+            <a href="shopsade/index.html" class="block text-3xl text-gray-900 hover:text-gray-500 shop-sade-link" onclick="toggleMobileMenu()">Shop SADÉ</a>
+            <a href="blog.html" class="block text-3xl font-montserrat uppercase text-gray-900 hover:text-gray-500" onclick="toggleMobileMenu()">Blog</a>
+            <a href="contact.html" class="block text-3xl font-montserrat uppercase text-gray-900 hover:text-gray-500" onclick="toggleMobileMenu()">Contact</a>
+        </nav>
+
+        <!-- Social Icons (UPDATED FACEBOOK LINK) -->
+        <div class="mt-6 flex space-x-4 text-2xl">
+            <a href="https://www.facebook.com/SadeJansenDesigner" target="_blank" class="text-black hover:text-gray-500" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://instagram.com/sade_jansen_designer" target="_blank" class="text-black hover:text-gray-500" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content Area: About Page -->
+    <main class="container mx-auto px-4 py-16 md:py-24">
+        
+        <!-- Section 1: Page Title -->
+        <section class="mb-12 md:mb-16">
+            <!-- H1 optimized to include designer name and key roles -->
+            <h1 class="font-bodoni text-4xl sm:text-5xl lg:text-6xl text-left text-gray-900 font-light normal-case">
+                Meet Sadé Jansen, Couture Designer
+            </h1>
+        </section>
+
+        <!-- Section 2: Image and Biography -->
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+            
+            <!-- Column 1: Image (Uses sade.jpg as requested) -->
+            <div class="lg:col-span-1">
+                <img src="assets/sade.jpg" alt="Portrait of Sadé Jansen, South African Fashion Designer" class="w-full h-auto object-cover aspect-[3/4]" onerror="this.onerror=null; this.src='https://placehold.co/600x800/808080/fff?text=Sadé+Jansen+Portrait'">
+            </div>
+
+            <!-- Column 2: Biography -->
+            <div class="lg:col-span-2 text-left space-y-8">
+                
+                <!-- Paragraph 1 - Uses font-montserrat as requested (Montseratt light) -->
+                <p class="font-montserrat text-lg leading-relaxed text-gray-900 font-light">
+                    Sadé Jansen is more than a fashion designer; she is a storyteller weaving narratives into fabric. Based in the heart of Bloemfontein, South Africa, her studio has become a nexus of classical couture techniques and contemporary African aesthetics. Driven by a philosophy that true elegance lies in individuality, Sadé specializes in creating bespoke garments—from ethereal wedding gowns to statement matric farewell and evening wear—that not only fit the body perfectly but also capture the unique essence of the wearer's personality and dreams. Her work is a passionate celebration of high-quality textiles, meticulous detail, and timeless design.
+                </p>
+
+                <!-- Paragraph 2 - Uses font-montserrat as requested (Montseratt light) -->
+                <p class="font-montserrat text-lg leading-relaxed text-gray-900 font-light">
+                    The design process with Sadé Jansen is a collaborative journey marked by personal attention and expert guidance. Beginning with an intimate consultation, she delves into the client's vision, sketching, sourcing materials, and conducting fittings with dedication to perfection. Her commitment extends beyond the final stitch; it is about building a connection and ensuring the client feels empowered and extraordinary in their custom creation. Sadé believes that a garment should be an extension of the soul, a wearable piece of art that makes a lasting impression long after the moment has passed.
+                </p>
+
+            </div>
+        </section>
+
+        <!-- Section 3: Quote and Call to Action -->
+        <section class="mt-20 md:mt-32 text-center">
+            
+            <!-- Quote - Uses font-bodoni-italic (Prata Italic) -->
+            <blockquote class="font-bodoni-italic text-3xl sm:text-4xl text-gray-900 mb-10 max-w-3xl mx-auto leading-relaxed">
+                "Fashion is not about clothing; it's about life, about the confidence to wear your story on your sleeve."
+            </blockquote>
+
+            <!-- Button - Links to contact.html -->
+            <a href="contact.html" class="inline-block uppercase font-montserrat tracking-widest text-white bg-gray-900 text-base md:text-lg px-10 py-4 transition duration-300 hover:bg-gray-700">
+                Let's create magic
+            </a>
+
+        </section>
+
+    </main>
+
+    <!-- Footer - Black background, white text, centered logo -->
+    <footer class="bg-black pt-12 pb-6 text-white">
+        <div class="container mx-auto px-4">
+            
+            <!-- Footer Content Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-6 mb-6 border-b border-gray-800">
+                
+                <!-- Logo -->
+                <div class="flex flex-col items-center md:items-start">
+                    <!-- Alt tag updated for SEO -->
+                    <img src="assets/logo3.jpg" alt="SADÉ JANSEN Fashion Designer Bloemfontein" class="image-logo mb-4" onerror="this.onerror=null; this.src='https://placehold.co/220x65/000/fff?text=SADÉ+JANSEN'">
+                </div>
+
+                <!-- Quick Links (UPDATED BOOK APPOINTMENT LINK) -->
+                <div class="text-center md:text-left">
+                    <h4 class="font-montserrat font-semibold text-lg mb-3">Quick Links:</h4>
+                    <ul class="space-y-2">
+                        <li><a href="faqs.html" class="text-white hover:text-gray-400 transition duration-150">Frequently Asked Questions</a></li>
+                        <!-- FIX: Link to contact.html -->
+                        <li><a href="contact.html" class="text-white hover:text-gray-400 transition duration-150">Book Appointment</a></li>
+                        <li><a href="terms.html" class="text-white hover:text-gray-400 transition duration-150">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+
+                <!-- Follow Us (UPDATED FACEBOOK LINK) -->
+                <div class="text-center md:text-left">
+                    <h4 class="font-montserrat font-semibold text-lg mb-3">Follow us:</h4>
+                    <div class="flex justify-center md:justify-start space-x-4 text-2xl">
+                        <!-- FIX: Link to https://www.facebook.com/SadeJansenDesigner -->
+                        <a href="https://www.facebook.com/SadeJansenDesigner" target="_blank" class="text-white hover:text-gray-400 transition duration-150" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://instagram.com/sade_jansen_designer" target="_blank" class="text-white hover:text-gray-400 transition duration-150" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright - Centered and white text (UPDATED WEB DESIGNS LINK) -->
+            <div class="text-center text-sm font-montserrat text-white pt-6">
+                Copyright &copy; SADÉ JANSEN FASHION DESIGNER | All Rights Reserved | Web Designs by <a href="https://webbytlotly.netlify.app/" target="_blank" class="text-white hover:text-gray-400">Tlotly</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- 1. Standard Booking Appointment Modal/Pop-up (Full screen) -->
+    <div id="booking-modal" class="fixed inset-0 hidden items-center justify-center bg-black/70 z-[10000]">
+        <div class="bg-white p-8 w-full max-w-lg mx-4 relative border border-gray-900">
+            
+            <!-- Close Button (X icon) -->
+            <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-gray-700 hover:text-gray-900 transition" aria-label="Close Modal">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+
+            <h3 class="font-bodoni text-3xl mb-6 text-center">Book Your Private Consultation</h3>
+            
+            <p class="font-montserrat text-gray-600 mb-6 text-center">
+                Ready to start your bespoke design journey? Fill out the form below or proceed to the contact page.
+            </p>
+            
+            <!-- Simplified Form Placeholder -->
+            <form action="contact.html" method="GET" class="space-y-4">
+                <input type="text" placeholder="Your Name" class="w-full p-3 border border-gray-300 focus:border-gray-900 outline-none font-montserrat" required>
+                <input type="email" placeholder="Your Email" class="w-full p-3 border border-gray-300 focus:border-gray-900 outline-none font-montserrat" required>
+                <textarea rows="3" placeholder="Briefly describe your design needs (e.g., Wedding, Evening Wear)" class="w-full p-3 border border-gray-300 focus:border-gray-900 outline-none font-montserrat" required></textarea>
+                
+                <!-- Submit/Contact Button (No curve) -->
+                <button type="submit" class="w-full uppercase font-montserrat tracking-widest text-white bg-gray-900 text-base py-3 transition duration-300 hover:bg-gray-700">
+                    Submit Enquiry
+                </button>
+            </form>
+
+            <div class="mt-4 text-center">
+                <a href="contact.html" class="text-sm text-gray-700 hover:text-gray-900 transition duration-150">
+                    Go directly to Contact Page
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 2. Black Friday Promo Modal (Full-page, black background, HIDDEN by default on this page) -->
+    <div id="promo-modal-overlay" class="fixed inset-0 hidden items-center justify-center bg-black/90 z-[10001]">
+        
+        <!-- Content Container (Used for max-width and centering, but without bg-white) -->
+        <div class="p-8 w-full max-w-xl mx-4 relative text-white">
+            
+            <!-- Close Button (White icon) -->
+            <button onclick="closePromoModal()" class="absolute top-4 right-4 text-white hover:text-gray-300 transition" aria-label="Close Promo Modal">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+
+            <div class="max-w-md mx-auto text-center">
+                <!-- Title: Black Friday! (Bodoni Italic Light, White text) -->
+                <h3 class="font-bodoni-italic text-5xl sm:text-7xl mb-6 text-white font-light leading-none">
+                    Black Friday!
+                </h3>
+                
+                <!-- Description (Montserrat Light, White text) -->
+                <p class="font-montserrat text-base sm:text-lg mb-8 font-light">
+                    Matrics 2026, Get 25% discount this November Only to secure your spot. Attach your email and phone number below. Consultation and deposit secures your spot.
+                </p>
+                
+                <!-- Form (White labels and thin line fields) -->
+                <form onsubmit="event.preventDefault(); submitPromoForm();" class="space-y-8 text-left">
+                    
+                    <div>
+                        <label for="full-names" class="font-montserrat text-base">Full Names*</label>
+                        <!-- Custom class form-line-input-white for white text and line -->
+                        <input type="text" id="full-names" name="full-names" class="form-line-input-white mt-2" required>
+                    </div>
+
+                    <div>
+                        <label for="email-promo" class="font-montserrat text-base">Email*</label>
+                        <input type="email" id="email-promo" name="email-promo" class="form-line-input-white mt-2" required>
+                    </div>
+
+                    <div>
+                        <label for="phone-promo" class="font-montserrat text-base">Phone*</label>
+                        <input type="tel" id="phone-promo" name="phone-promo" class="form-line-input-white mt-2" required>
+                    </div>
+
+                    <!-- Submit Button (White background, black text for contrast) -->
+                    <button type="submit" class="w-full uppercase font-montserrat tracking-widest bg-white text-gray-900 text-base py-3 transition duration-300 hover:bg-gray-200 mt-6">
+                        Secure My Discount
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const collectionsBtn = document.getElementById('mobile-collections-btn');
+        const collectionsSubmenu = document.getElementById('mobile-collections-submenu');
+        
+        // Modal variables
+        const bookingModal = document.getElementById('booking-modal');
+        const promoModalOverlay = document.getElementById('promo-modal-overlay');
+
+        let isMenuOpen = false;
+
+        /** Mobile Menu Functions **/
+        function toggleMobileMenu() {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenuOverlay.classList.remove('hidden');
+                document.body.classList.add('menu-is-open'); 
+                document.body.style.overflow = 'hidden'; 
+            } else {
+                mobileMenuOverlay.classList.add('hidden');
+                document.body.classList.remove('menu-is-open'); 
+                document.body.style.overflow = ''; 
+                collectionsSubmenu.classList.add('hidden');
+            }
+        }
+
+        /** Standard Booking Modal Functions **/
+        function openBookingModal() {
+            bookingModal.classList.add('modal-active');
+            bookingModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeBookingModal() {
+            bookingModal.classList.remove('modal-active');
+            bookingModal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        // Close standard modal if user clicks outside
+        bookingModal.addEventListener('click', (e) => {
+            if (e.target === bookingModal) {
+                closeBookingModal();
+            }
+        });
+        
+        /** Black Friday Promo Modal Functions **/
+        function closePromoModal() {
+            // Hide the overlay
+            promoModalOverlay.classList.remove('is-visible');
+            promoModalOverlay.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+        
+        // Close promo modal if user clicks outside (on the black overlay)
+        promoModalOverlay.addEventListener('click', (e) => {
+            if (e.target === promoModalOverlay) {
+                closePromoModal();
+            }
+        });
+        
+        function submitPromoForm() {
+            // Placeholder function for form submission logic
+            // NOTE: In a real application, you would send this data to a database or API endpoint (like Firestore).
+            console.log("Black Friday form submitted!");
+            
+            // Close the modal
+            closePromoModal();
+        }
+
+        // Initialization on Load
+        window.onload = function() {
+            // Mobile Menu Event Listeners
+            mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+
+            collectionsBtn.addEventListener('click', () => {
+                collectionsSubmenu.classList.toggle('hidden');
+            });
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 768 && isMenuOpen) {
+                    toggleMobileMenu();
+                }
+            });
+            
+            // PROMO MODAL IS NOT SHOWN ON ABOUT PAGE LOAD
+        };
+    </script>
+</body>
+</html>
