@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Designs - SADÉ JANSEN</title>
+    
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Load Google Fonts for Prata (Bodoni replacement) and Montserrat Light -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Prata:ital@0;1&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Define custom font classes */
+        .font-bodoni { 
+            font-family: 'Prata', serif; 
+            font-weight: 300; 
+            letter-spacing: 0.05em; 
+        }
+        .font-bodoni-italic {
+            font-family: 'Prata', serif;
+            font-style: italic;
+            font-weight: 300;
+        }
+        .font-montserrat { 
+            font-family: 'Montserrat', sans-serif; 
+            font-weight: 300; 
+        }
+
+        /* Header/Mobile Menu Styles */
+        .icon-line {
+            height: 2px; 
+            background-color: black;
+            transition: all 0.3s ease-in-out;
+            position: absolute;
+            width: 139%;
+            left: 0;
+        }
+        #mobile-menu-btn .icon-wrapper {
+            width: 24px;
+            height: 24px;
+            position: relative; 
+            position: absolute;
+            right: 0; 
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        #mobile-menu-btn .line-top { top: 0px; }
+        #mobile-menu-btn .line-middle { top: 11px; }
+        #mobile-menu-btn .line-bottom { top: 22px; }
+        .menu-is-open #mobile-menu-btn .line-top {
+            transform: translateY(11px) rotate(45deg); 
+        }
+        .menu-is-open #mobile-menu-btn .line-middle {
+            opacity: 0; 
+        }
+        .menu-is-open #mobile-menu-btn .line-bottom {
+            transform: translateY(-11px) rotate(-45deg); 
+        }
+        .shop-sade-link {
+            font-family: 'Prata', serif;
+            font-weight: 300;
+            font-style: italic;
+        }
+        .image-logo {
+            max-height: 55px; 
+            width: auto;
+        }
+        @media (min-width: 768px) { 
+            .image-logo {
+                max-height: 65px; 
+            }
+        }
+        
+        /* Hero Background - Placeholder Image for Custom Page */
+        .hero-bg-custom {
+            background-image: url('assets/sade14.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 75vh; 
+        }
+        /* Step icon styling */
+        .step-icon {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 60px;
+            height: 60px;
+            background-color: #f7f7f7;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            color: #333;
+        }
+    </style>
+</head>
+<body class="font-montserrat text-gray-900 antialiased bg-white">
+
+    <!-- Primary Header -->
+    <header class="sticky top-0 bg-white px-4 py-3" style="z-index:9998;">
+        <div class="container mx-auto flex items-center justify-between relative">
+            
+            <!-- Logo (Image) -->
+            <a href="index.html" class="flex items-center">
+                <img src="assets/logo1.jpg" alt="SADÉ JANSEN Fashion Designer Logo" class="image-logo" onerror="this.onerror=null; this.src='https://placehold.co/220x65/fff/333?text=SADÉ+JANSEN'">
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex items-center space-x-8 lg:space-x-12">
+                <a href="index.html" class="uppercase text-sm hover:text-gray-500 font-montserrat transition duration-150 ease-in-out">Home</a>
+                <a href="about.html" class="uppercase text-sm hover:text-gray-500 font-montserrat transition duration-150 ease-in-out">About</a>
+                
+                <!-- Collections Dropdown -->
+                <div class="group relative">
+                    <button class="uppercase text-sm text-gray-900 font-montserrat flex items-center transition duration-150 ease-in-out border-b border-gray-500">
+                        Collections 
+                        <svg class="ml-1 w-3 h-3 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="absolute hidden group-hover:block pt-3 min-w-[180px] z-50 left-1/2 transform -translate-x-1/2">
+                        <div class="bg-white ring-1 ring-black ring-opacity-5 p-2 font-montserrat text-center border border-gray-200">
+                            <a href="weddings.html" class="block px-4 py-2 text-sm uppercase text-gray-900 hover:text-gray-500 transition duration-100">Weddings</a>
+                            <a href="matric-farewell.html" class="block px-4 py-2 text-sm uppercase text-gray-900 hover:bg-gray-100 transition duration-100">Matric Farewell</a>
+                            <a href="evening-wear.html" class="block px-4 py-2 text-sm uppercase text-gray-900 hover:bg-gray-100 transition duration-100">Evening Wear</a>
+                            <a href="customs.html" class="block px-4 py-2 text-sm uppercase text-gray-500 bg-gray-50 transition duration-100">Custom Designs</a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="shopsade/index.html" class="text-sm hover:text-gray-500 shop-sade-link transition duration-150 ease-in-out">Shop SADÉ</a>
+                <a href="blog.html" class="uppercase text-sm hover:text-gray-500 font-montserrat transition duration-150 ease-in-out">Blog</a>
+                <a href="contact.html" class="uppercase text-sm hover:text-gray-500 font-montserrat transition duration-150 ease-in-out">Contact</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 relative w-[140px] h-12" style="z-index:9999;" aria-label="Toggle Menu">
+                <div class="icon-wrapper">
+                    <div class="icon-line line-top"></div>
+                    <div class="icon-line line-middle"></div>
+                    <div class="icon-line line-bottom"></div>
+                </div>
+            </button>
+        </div>
+    </header>
+
+    <!-- Full-Screen Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-white z-50 hidden transition-all duration-300 ease-in-out flex flex-col items-center pt-24 pb-8 overflow-y-auto">
+        <nav class="text-center space-y-6 w-full max-w-sm">
+            <a href="index.html" class="block text-3xl font-montserrat uppercase text-gray-900 hover:text-gray-500" onclick="toggleMobileMenu()">Home</a>
+            <a href="about.html" class="block text-3xl font-montserrat uppercase text-gray-900 hover:text-gray-500" onclick="toggleMobileMenu()">About</a>
+            <div class="text-center">
+                <button id="mobile-collections-btn" class="text-3xl font-montserrat uppercase text-gray-500 mb-2 transition duration-150">
+                    Collections
+                </button>
+                <div id="mobile-collections-submenu" class="space-y-3 mt-3 hidden"> 
+                    <a href="weddings.html" class="block text-xl font-montserrat uppercase text-gray-900 hover:text-gray-500 transition duration-150" onclick="toggleMobileMenu()">Weddings</a>
+                    <a href="matric-farewell.html" class="block text-xl font-montserrat uppercase text-gray-900 hover:text-gray-500 transition duration-150" onclick="toggleMobileMenu()">Matric Farewell</a>
+                    <a href="evening-wear.html" class="block text-xl font-montserrat uppercase text-gray-900 hover:text-gray-500 transition duration-150" onclick="toggleMobileMenu()">Evening Wear</a>
+                    <a href="customs.html" class="block text-xl font-montserrat uppercase text-gray-500 transition duration-150" onclick="toggleMobileMenu()">Custom Designs</a>
+                </div>
+            </div>
+            <a href="shopsade/index.html" class="block text-3xl text-gray-900 hover:text-gray-500 shop-sade-link" onclick="toggleMobileMenu()">Shop SADÉ</a>
+            <a href="blog.html" class="block text-3xl font-montserrat uppercase text-gray-900 hover:text-gray-500" onclick="toggleMobileMenu()">Blog</a>
+            <a href="contact.html" class="block text-3xl font-montserrat uppercase text-gray-900 hover:text-gray-500" onclick="toggleMobileMenu()">Contact</a>
+        </nav>
+        <div class="mt-6 flex space-x-4 text-2xl">
+            <a href="https://www.facebook.com/SadeJansenDesigner" target="_blank" class="text-black hover:text-gray-500" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://instagram.com/sade_jansen_designer" target="_blank" class="text-black hover:text-gray-500" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+    
+    <!-- HERO SECTION -->
+    <section class="hero-bg-custom relative flex items-center justify-center border-y border-gray-200">
+        <!-- Transparent Overlay for Readability -->
+        <div class="absolute inset-0 bg-black/60 z-10"></div>
+        
+        <!-- Content Overlay -->
+        <div class="relative z-20 flex flex-col items-center justify-center text-center px-4 py-16 w-full">
+            <h1 class="font-bodoni text-white text-5xl sm:text-7xl lg:text-8xl font-light normal-case mb-6 mt-10" style="text-shadow: none;">
+                Bespoke Design Studio
+            </h1>
+
+            <p class="font-montserrat text-xl text-white max-w-4xl mb-10 font-light leading-relaxed">
+                Your vision, our craftsmanship. Start your journey to an unparalleled garment—from idea to final fitting, created exclusively for you.
+            </p>
+
+            <a href="#process" class="inline-block uppercase font-montserrat tracking-widest text-white border border-white bg-transparent text-base md:text-lg px-10 py-4 transition duration-300 hover:bg-white hover:text-gray-900">
+                Explore The Process
+            </a>
+        </div>
+    </section>
+
+    <main class="container mx-auto px-4 py-16 md:py-24">
+        
+        <!-- Section 2: Why Choose Custom -->
+        <section class="mb-16 md:mb-24 text-center">
+            <h2 class="font-bodoni text-4xl sm:text-5xl text-gray-900 font-light mb-6">
+                The Art of Tailored Perfection
+            </h2>
+            <p class="font-montserrat text-xl text-gray-700 max-w-4xl mx-auto mb-12">
+                Custom design is more than tailoring; it is collaboration. We translate your ideas, inspiration, and personality into a unique garment that fits your body and soul flawlessly.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-6 border border-gray-100 bg-gray-50">
+                    <i class="fas fa-magic text-3xl mb-3 text-gray-900"></i>
+                    <h3 class="font-montserrat font-semibold text-lg mb-2">Unique Identity</h3>
+                    <p class="text-gray-600 text-sm">Design a piece that is truly one-of-a-kind, ensuring you stand out at any event.</p>
+                </div>
+                <div class="p-6 border border-gray-100 bg-gray-50">
+                    <i class="fas fa-ruler-combined text-3xl mb-3 text-gray-900"></i>
+                    <h3 class="font-montserrat font-semibold text-lg mb-2">Perfect Fit</h3>
+                    <p class="text-gray-600 text-sm">Garments are meticulously fitted to your exact measurements, providing unparalleled comfort and silhouette.</p>
+                </div>
+                <div class="p-6 border border-gray-100 bg-gray-50">
+                    <i class="fas fa-layer-group text-3xl mb-3 text-gray-900"></i>
+                    <h3 class="font-montserrat font-semibold text-lg mb-2">Fabric & Detail Choice</h3>
+                    <p class="text-gray-600 text-sm">Select from the finest materials and define every detail, from stitching to embellishments.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: The Process -->
+        <section id="process" class="mb-16 md:mb-24">
+            <h2 class="font-bodoni text-4xl sm:text-5xl text-center text-gray-900 font-light mb-16">
+                Our 5-Step Bespoke Journey
+            </h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-y-12 lg:gap-8 max-w-6xl mx-auto">
+                
+                <!-- Step 1: Consultation & Concept -->
+                <div class="lg:col-span-1 text-center lg:text-left border-b lg:border-b-0 lg:border-r border-gray-200 lg:pb-0 pb-6">
+                    <div class="step-icon mx-auto lg:mx-0"><i class="fas fa-comment-dots"></i></div>
+                    <h3 class="font-montserrat font-semibold text-xl mb-2">1. Consultation</h3>
+                    <p class="text-gray-600 text-sm">We discuss your vision, event, timeline, and budget. This step solidifies the initial design concept.</p>
+                </div>
+
+                <!-- Step 2: Design & Fabric Selection -->
+                <div class="lg:col-span-1 text-center lg:text-left border-b lg:border-b-0 lg:border-r border-gray-200 lg:pb-0 pb-6">
+                    <div class="step-icon mx-auto lg:mx-0"><i class="fas fa-palette"></i></div>
+                    <h3 class="font-montserrat font-semibold text-xl mb-2">2. Sketch & Swatches</h3>
+                    <p class="text-gray-600 text-sm">SADÉ creates detailed sketches and mood boards, and you select your final luxury fabrics.</p>
+                </div>
+
+                <!-- Step 3: Pattern & Muslin Fitting -->
+                <div class="lg:col-span-1 text-center lg:text-left border-b lg:border-b-0 lg:border-r border-gray-200 lg:pb-0 pb-6">
+                    <div class="step-icon mx-auto lg:mx-0"><i class="fas fa-cut"></i></div>
+                    <h3 class="font-montserrat font-semibold text-xl mb-2">3. Pattern & Toile</h3>
+                    <p class="text-gray-600 text-sm">A mock-up (toile/muslin) is created for your first fitting to perfect the fundamental structure and fit.</p>
+                </div>
+
+                <!-- Step 4: Garment Construction -->
+                <div class="lg:col-span-1 text-center lg:text-left border-b lg:border-b-0 lg:border-r border-gray-200 lg:pb-0 pb-6">
+                    <div class="step-icon mx-auto lg:mx-0"><i class="fas fa-thread"></i></div>
+                    <h3 class="font-montserrat font-semibold text-xl mb-2">4. Creation & Fitting</h3>
+                    <p class="text-gray-600 text-sm">The garment is constructed from the final material, followed by one or two crucial fittings for final adjustments.</p>
+                </div>
+
+                <!-- Step 5: Final Presentation -->
+                <div class="lg:col-span-1 text-center lg:text-left">
+                    <div class="step-icon mx-auto lg:mx-0"><i class="fas fa-star"></i></div>
+                    <h3 class="font-montserrat font-semibold text-xl mb-2">5. Delivery</h3>
+                    <p class="text-gray-600 text-sm">Your finished, perfectly-tailored bespoke garment is ready for its debut.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Call to Action -->
+        <section class="mt-10 border-t border-gray-200 pt-16 text-center">
+            <h2 class="font-bodoni text-4xl sm:text-5xl text-center text-gray-900 font-light mb-10">
+                Ready to Create Your Masterpiece?
+            </h2>
+            <p class="font-montserrat text-xl text-gray-900 mb-6 font-light max-w-3xl mx-auto">
+                The journey to your dream garment begins with a simple conversation. Contact us to schedule your initial design consultation.
+            </p>
+            
+            <!-- Final CTA Button -->
+            <div class="text-center mt-12">
+                <a href="contact.html" class="inline-block uppercase font-montserrat tracking-widest text-white bg-gray-900 text-base md:text-lg px-12 py-5 transition duration-300 hover:bg-gray-700">
+                    Book Consultation Now
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black pt-12 pb-6 text-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-6 mb-6 border-b border-gray-800">
+                <div class="flex flex-col items-center md:items-start">
+                    <img src="assets/logo3.jpg" alt="SADÉ JANSEN Fashion Designer Logo" class="image-logo mb-4" onerror="this.onerror=null; this.src='https://placehold.co/220x65/000/fff?text=SADÉ+JANSEN'">
+                </div>
+                <div class="text-center md:text-left">
+                    <h4 class="font-montserrat font-semibold text-lg mb-3">Quick Links:</h4>
+                    <ul class="space-y-2">
+                        <li><a href="faqs.html" class="text-white hover:text-gray-400 transition duration-150">Frequently Asked Questions</a></li>
+                        <li><a href="contact.html" class="text-white hover:text-gray-400 transition duration-150">Book Appointment</a></li>
+                        <li><a href="terms.html" class="text-white hover:text-gray-400 transition duration-150">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="text-center md:text-left">
+                    <h4 class="font-montserrat font-semibold text-lg mb-3">Follow us:</h4>
+                    <div class="flex justify-center md:justify-start space-x-4 text-2xl">
+                        <a href="https://www.facebook.com/SadeJansenDesigner" target="_blank" class="text-white hover:text-gray-400 transition duration-150" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com/sade_jansen_designer" target="_blank" class="text-white hover:text-gray-400 transition duration-150" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center text-sm font-montserrat text-white pt-6">
+                Copyright &copy; SADÉ JANSEN FASHION DESIGNER | All Rights Reserved | Web Designs by <a href="webbytlotly.netlify.app" target="_blank" class="text-white hover:text-gray-400">Tlotly</a>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const collectionsBtn = document.getElementById('mobile-collections-btn');
+        const collectionsSubmenu = document.getElementById('mobile-collections-submenu');
+        
+        let isMenuOpen = false;
+
+        function toggleMobileMenu() {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenuOverlay.classList.remove('hidden');
+                document.body.classList.add('menu-is-open'); 
+                document.body.style.overflow = 'hidden'; 
+            } else {
+                mobileMenuOverlay.classList.add('hidden');
+                document.body.classList.remove('menu-is-open'); 
+                document.body.style.overflow = ''; 
+                // Ensure submenu is hidden when main menu closes
+                collectionsSubmenu.classList.add('hidden');
+            }
+        }
+
+        window.onload = function() {
+            // Setup Listeners
+            mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+            collectionsBtn.addEventListener('click', () => {
+                collectionsSubmenu.classList.toggle('hidden');
+            });
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 768 && isMenuOpen) {
+                    toggleMobileMenu();
+                }
+            });
+        };
+    </script>
+</body>
+</html>

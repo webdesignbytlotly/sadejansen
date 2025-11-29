@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Collection - Bespoke Bridal Couture</title>
+    
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Load Google Fonts for Bodoni (using Prata as substitute) and Montserrat Light -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Prata:ital@0;1&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Define custom font classes - Consistent with other pages */
+        .font-bodoni { 
+            font-family: 'Prata', serif; 
+            font-weight: 300; 
+            letter-spacing: 0.05em; 
+        }
+        .font-bodoni-italic {
+            font-family: 'Prata', serif;
+            font-style: italic;
+            font-weight: 300;
+        }
+        .font-montserrat { 
+            font-family: 'Montserrat', sans-serif; 
+            font-weight: 300; 
+        }
+
+        /* Custom thin hamburger/close icon lines */
+        .icon-line {
+            height: 2px; 
+            background-color: black;
+            transition: all 0.3s ease-in-out;
+            position: absolute;
+            width: 139%;
+            left: 0;
+        }
+
+        /* Mobile icon swap container */
+        #mobile-menu-btn .icon-wrapper {
+            width: 24px;
+            height: 24px;
+            position: relative; 
+            position: absolute;
+            right: 0; 
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Hamburger lines positioning */
+        #mobile-menu-btn .line-top { top: 0px; }
+        #mobile-menu-btn .line-middle { top: 11px; }
+        #mobile-menu-btn .line-bottom { top: 22px; }
+
+        /* Transform lines into X */
+        .menu-is-open #mobile-menu-btn .line-top {
+            transform: translateY(11px) rotate(45deg); 
+        }
+        .menu-is-open #mobile-menu-btn .line-middle {
+            opacity: 0; 
+        }
+        .menu-is-open #mobile-menu-btn .line-bottom {
+            transform: translateY(-11px) rotate(-45deg); 
+        }
+
+        /* Shop SADÉ link style */
+        .shop-sade-link {
+            font-family: 'Prata', serif;
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        /* Image Logo Styling */
+        .image-logo {
+            max-height: 55px; 
+            width: auto;
+        }
+        @media (min-width: 768px) { 
+            .image-logo {
+                max-height: 65px; 
+            }
+        }
+        
+        /* Form field style: thin line under the title - WHITE version for the modal */
+        .form-line-input-white {
+            border: none;
+            border-bottom: 1px solid #ffffff; /* White line */
+            padding: 4px 0;
+            outline: none;
+            width: 100%;
+            transition: border-bottom-color 0.2s;
+            font-size: 1rem;
+            color: white; /* White text */
+            background-color: transparent; /* Transparent background */
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+        }
+        .form-line-input-white:focus {
+            border-bottom-color: #e5e7eb; /* Light gray on focus */
+        }
+        
+        /* Custom image hover effect */
+        .collection-image {
+            transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+        }
+        .collection-image:hover {
+            transform: scale(1.03);
+            filter: brightness(0.9);
+        }
+
+        /* --- Marquee Styles (Updated for no spacing and uniform size) --- */
+        @keyframes marqueeScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } 
+        }
+
+        .marquee-container {
+            overflow: hidden; 
+            /* Remove vertical padding to make it tight */
+        }
+        
+        .marquee-inner {
+            display: flex;
+            width: 200%; /* Double the width for the loop */
+            animation: marqueeScroll 30s linear infinite; 
+            /* Ensure no space under images */
+            line-height: 0; 
+            font-size: 0;
+        }
+
+        .marquee-item {
+            flex-shrink: 0; 
+            /* Show 6 items across the viewport (100vw / 6 = 16.66vw) */
+            width: 16.66667vw; 
+            height: 250px; /* Appropriate fixed height for desktop */
+            /* Ensure no spacing */
+            padding: 0; 
+            margin: 0;
+        }
+        
+        .marquee-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Adjusting for mobile */
+        @media (max-width: 768px) {
+            .marquee-item {
+                /* Show 3 items across the viewport (100vw / 3 = 33.33vw) */
+                width: 33.3333vw; 
+                height: 150px; /* Appropriate smaller fixed height for mobile */
+            }
+        }
+    </style>
+</head>
+<body class="font-montserrat text-gray-900 antialiased bg-white">
+
+    <!-- Primary Header -->
+    <header class="sticky top-0 bg-white px-4 py-3" style="z-index:9998;">
+        <div class="container mx-auto flex items-center justify-between relative">
+            
+            <!-- Logo (Image) -->
+            <a href="index.html" class="flex items-center">
+                <img src="assets/logo1.jpg" alt="SADÉ JANSEN Fashion Designer Logo" class="image-logo" onerror="this.onerror=null; this.src='https://placehold.co/220x65/fff/333?text=SADÉ+JANSEN'">
+            </a>
+
+            <!-- Desktop Menu (Visible on md and up) -->
+            <nav class="hidden md:flex items-center space-x-8 lg:space-x-12">
+                <a href="index.html" class="uppercase text-sm hover:text-gray-500 font-montserrat transition duration-150 ease-in-out">Home</a>
+                <a href="about.html" class="uppercase text-sm hover:text-gray-500 font-montserrat transition duration-150 ease-in-out">About</a>
+                
+                <!-- Collections Dropdown -->
+                <div class="group relative">
+                    <button class="uppercase text-sm text-gray-500 font-montserrat flex items-center transition duration-150 ease-in-out border-b border-gray-500">
+                        Collections 
+                        <svg class="ml-1 w-3 h-3 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <!-- Submenu -->
+                    <div class="absolute hidden group-hover:block pt-3 min-w-[180px] z-50 left-1/2 transform -translate-x-1/2">
+                        <div class="bg-white ring-1 ring-black ring-opacity-5 p-2 font-montserrat text-center border border-gray-200">
+                            <!-- Highlight 'Weddings' link as current page -->
+                            <a href="weddings.html" class="block px-4 py-2 text-sm uppercase text-gray-500 bg-gray-50 transition duration-100">Weddings</a>
+                            <a href="matric-farewell.html" class="block px-4 py-2 text-sm uppercase text-gray-900 hover:text-gray-500 transition duration-100">Matric Farewell</a>
+                            <a href="evening-wear.html" class="block px-4 py-2 text-sm uppercase text-gray-900 hover:bg-gray-100 transition duration-100">Evening Wear</a>
+                            <a href="customs.html" class="block px-4 py-2 text-sm uppercase text-gray-900 hover:bg-gray-100 transition duration-100">Custom Designs</a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="shopsade/index.html" class="text-sm hover:text-gray-500 shop-sade-link transition duration-150 ease-in-out">Shop SADÉ</a>
+                <a href="blog.html" class="uppercase text-sm hover:text-gray-500 font-montserrat transition duration-150 ease-in-out">Blog</a>
+                <a href="contact.html" class="uppercase text-sm hover:text-gray-500 font-montserrat transition duration-150 ease-in-out">Contact</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 relative w-[140px] h-12" style="z-index:9999;" aria-label="Toggle Menu">
+                <div class="icon-wrapper">
+                    <div class="icon-line line-top"></div>
+                    <div class="icon-line line-middle"></div>
+                    <div class="icon-line line-bottom"></div>
+                </div>
+            </button>
+        </div>
+    </header>
+
+    <!-- Full-Screen Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-white z-50 hidden transition-all duration-300 ease-in-out flex flex-col items-center pt-24 pb-8 overflow-y-auto">
+        
+        <nav class="text-center space-y-6 w-full max-w-sm">
+            <a href="index.html" class="block text-3xl font-montserrat uppercase text-gray-900 hover:text-gray-500" onclick="toggleMobileMenu()">Home</a>
+            <a href="about.html" class="block text-3xl font-montserrat uppercase text-gray-900 hover:text-gray-500" onclick="toggleMobileMenu()">About</a>
+            
+            <!-- Collections Section -->
+            <div class="text-center">
+                <button id="mobile-collections-btn" class="text-3xl font-montserrat uppercase text-gray-500 mb-2 transition duration-150">
+                    Collections
+                </button>
+                <div id="mobile-collections-submenu" class="space-y-3 mt-3"> 
+                    <a href="weddings.html" class="block text-xl font-montserrat uppercase text-gray-500 transition duration-150" onclick="toggleMobileMenu()">Weddings</a>
+                    <a href="matric-farewell.html" class="block text-xl font-montserrat uppercase text-gray-900 hover:text-gray-500 transition duration-150" onclick="toggleMobileMenu()">Matric Farewell</a>
+                    <a href="evening-wear.html" class="block text-xl font-montserrat uppercase text-gray-900 hover:text-gray-500 transition duration-150" onclick="toggleMobileMenu()">Evening Wear</a>
+                    <a href="customs.html" class="block text-xl font-montserrat uppercase text-gray-900 hover:text-gray-500 transition duration-150" onclick="toggleMobileMenu()">Custom Designs</a>
+                </div>
+            </div>
+
+            <a href="shopsade/index.html" class="block text-3xl text-gray-900 hover:text-gray-500 shop-sade-link" onclick="toggleMobileMenu()">Shop SADÉ</a>
+            <a href="blog.html" class="block text-3xl font-montserrat uppercase text-gray-900 hover:text-gray-500" onclick="toggleMobileMenu()">Blog</a>
+            <a href="contact.html" class="block text-3xl font-montserrat uppercase text-gray-900 hover:text-gray-500" onclick="toggleMobileMenu()">Contact</a>
+        </nav>
+
+        <!-- Social Icons -->
+        <div class="mt-6 flex space-x-4 text-2xl">
+            <a href="https://facebook.com/Sadé Nonsense Fashion Designer" target="_blank" class="text-black hover:text-gray-500" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://instagram.com/sade_jansen_designer" target="_blank" class="text-black hover:text-gray-500" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+    </div>
+    
+    <!-- IMAGE MARQUEE SECTION (Updated to be border-y tight with no padding) -->
+    <section class="marquee-container bg-gray-50 border-y border-gray-200">
+        <div class="marquee-inner">
+            <!-- Set 1 of Content (Original - 6 unique images) -->
+            <div class="marquee-item"><img src="assets/sade2.jpg" alt="Bridal Marquee Image A" onerror="this.onerror=null; this.src='https://placehold.co/800x1200/fafafa/333?text=Bridal+A'"></div>
+            <div class="marquee-item"><img src="assets/sade7.jpg" alt="Bridal Marquee Image B" onerror="this.onerror=null; this.src='https://placehold.co/800x1200/f0f0f0/444?text=Bridal+B'"></div>
+            <div class="marquee-item"><img src="assets/sade9.jpg" alt="Bridal Marquee Image C" onerror="this.onerror=null; this.src='https://placehold.co/800x1200/e5e5e5/555?text=Bridal+C'"></div>
+            <div class="marquee-item"><img src="assets/sade10.jpg" alt="Bridal Marquee Image D" onerror="this.onerror=null; this.src='https://placehold.co/800x1200/dadada/666?text=Bridal+D'"></div>
+            <div class="marquee-item"><img src="assets/sade13.jpg" alt="Bridal Marquee Image E" onerror="this.onerror=null; this.src='https://placehold.co/800x1200/d0d0d0/777?text=Bridal+E'"></div>
+            <div class="marquee-item"><img src="assets/sade2.jpg" alt="Bridal Marquee Image F" onerror="this.onerror=null; this.src='https://placehold.co/800x1200/c5c5c5/888?text=Bridal+F'"></div>
+            
+            <!-- Set 2 of Content (Duplicated for seamless loop) -->
+            <div class="marquee-item"><img src="assets/sade2.jpg" alt="Bridal Marquee Image A" onerror="this.onerror=null; this.src='https://placehold.co/800x1200/fafafa/333?text=Bridal+A'"></div>
+            <div class="marquee-item"><img src="assets/sade7.jpg" alt="Bridal Marquee Image B" onerror="this.onerror=null; this.src='https://placehold.co/800x1200/f0f0f0/444?text=Bridal+B'"></div>
+            <div class="marquee-item"><img src="assets/sade9.jpg" alt="Bridal Marquee Image C" onerror="this.onerror=null; this.src='https://placehold.co/800x1200/e5e5e5/555?text=Bridal+C'"></div>
+            <div class="marquee-item"><img src="assets/sade10.jpg" alt="Bridal Marquee Image D" onerror="this.onerror=null; this.src='https://placehold.co/800x1200/dadada/666?text=Bridal+D'"></div>
+            <div class="marquee-item"><img src="assets/sade13.jpg" alt="Bridal Marquee Image E" onerror="this.onerror=null; this.src='https://placehold.co/800x1200/d0d0d0/777?text=Bridal+E'"></div>
+            <div class="marquee-item"><img src="assets/sade2.jpg" alt="Bridal Marquee Image F" onerror="this.onerror=null; this.src='https://placehold.co/800x1200/c5c5c5/888?text=Bridal+F'"></div>
+             </div>
+    </section>
+
+    <!-- Main Content Area: Wedding Collection -->
+    <main class="container mx-auto px-4 py-16 md:py-24">
+        
+        <!-- Section 1: Hero Title and Description -->
+        <section class="mb-16 md:mb-20 text-center">
+            <h1 class="font-bodoni text-5xl sm:text-6xl lg:text-7xl text-gray-900 font-light normal-case mb-6">
+                The Bridal Collection
+            </h1>
+            <p class="font-montserrat text-xl text-gray-700 max-w-4xl mx-auto mb-10">
+                The moment you've dreamed of deserves a gown created just for you. Our bespoke bridal collection is an expression of artistry, blending luxurious European textiles with exquisite South African craftsmanship to create timeless pieces that honor your unique love story.
+            </p>
+            
+            <!-- Initial CTA -->
+            <a href="contact.html" class="inline-block uppercase font-montserrat tracking-widest text-white bg-gray-900 text-base md:text-lg px-10 py-4 transition duration-300 hover:bg-gray-700">
+                Book Your Bridal Consultation
+            </a>
+        </section>
+
+        <!-- Section 2: Collection Showcase (Responsive Grid) -->
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Gown 1: Classic Lace -->
+            <div class="overflow-hidden rounded-md shadow-lg">
+                <img src="assets/sade7.jpg" alt="Ethereal Lace Wedding Gown" class="w-full h-auto object-cover collection-image aspect-[2/3]" onerror="this.onerror=null; this.src='https://placehold.co/800x1200/f5f5f5/333?text=Bridal+Couture+I'">
+                <div class="p-4 bg-white text-center">
+                    <h3 class="font-bodoni text-xl mb-1">Ivory Wedding Dress</h3>
+                    <p class="font-montserrat text-sm text-gray-600">The hand beaded Ivory wedding dress.</p>
+                </div>
+            </div>
+
+            <!-- Gown 2: Modern Silk -->
+            <div class="overflow-hidden rounded-md shadow-lg">
+                <img src="assets/sade3.jpg" alt="Modern Silk Wedding Slip Dress" class="w-full h-auto object-cover collection-image aspect-[2/3]" onerror="this.onerror=null; this.src='https://placehold.co/800x1200/e0e0e0/444?text=Bridal+Couture+II'">
+                <div class="p-4 bg-white text-center">
+                    <h3 class="font-bodoni text-xl mb-1">Layered Tulle Wedding Dress</h3>
+                    <p class="font-montserrat text-sm text-gray-600">Layered tulle wedding dress with pearl detail corset.</p>
+                </div>
+            </div>
+
+            <!-- Gown 3: Ballgown Volume -->
+            <div class="overflow-hidden rounded-md shadow-lg md:col-span-2 lg:col-span-1">
+                <img src="assets/sade9.jpg" alt="Dramatic Tulle Ballgown" class="w-full h-auto object-cover collection-image aspect-[2/3]" onerror="this.onerror=null; this.src='https://placehold.co/800x1200/cccccc/555?text=Bridal+Couture+III'">
+                <div class="p-4 bg-white text-center">
+                    <h3 class="font-bodoni text-xl mb-1">Daisy Flower Dress</h3>
+                    <p class="font-montserrat text-sm text-gray-600"> </div>
+            </div>
+
+            <!-- Gown 4: Destination/Boho -->
+            <div class="overflow-hidden rounded-md shadow-lg lg:col-span-2">
+                <img src="assets/sade13.jpg" alt="Bohemian Bridal Two-Piece Set" class="w-full h-auto object-cover collection-image aspect-[2/3]" onerror="this.onerror=null; this.src='https://placehold.co/1600x1000/d5d5d5/666?text=Bridal+Couture+IV'">
+                <div class="p-4 bg-white text-center">
+                    <h3 class="font-bodoni text-xl mb-1">Ivory Sequins Dress</h3>
+                    <p class="font-montserrat text-sm text-gray-600">Ivory sequins and pearl detail wedding dress.</p>
+                </div>
+            </div>
+            
+        </section>
+
+        <!-- Section 3: Bespoke Process Overview -->
+        <section class="mt-20 md:mt-32 border-t border-gray-200 pt-16">
+            <h2 class="font-bodoni text-4xl sm:text-5xl text-center text-gray-900 font-light mb-10">
+                Your Bespoke Journey
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto text-center">
+                
+                <div class="p-4">
+                    <i class="fas fa-comments text-3xl text-gray-900 mb-3"></i>
+                    <h3 class="font-montserrat font-semibold text-lg mb-2">1. Consultation</h3>
+                    <p class="font-montserrat text-gray-600">Share your vision, inspirations, venue, and budget. We'll sketch your perfect gown.</p>
+                </div>
+                
+                <div class="p-4">
+                    <i class="fas fa-swatchbook text-3xl text-gray-900 mb-3"></i>
+                    <h3 class="font-montserrat font-semibold text-lg mb-2">2. Fabrication</h3>
+                    <p class="font-montserrat text-gray-600">Selection of the finest silks, lace, and materials sourced specifically for your design.</p>
+                </div>
+
+                <div class="p-4">
+                    <i class="fas fa-ruler-combined text-3xl text-gray-900 mb-3"></i>
+                    <h3 class="font-montserrat font-semibold text-lg mb-2">3. Fittings & Finish</h3>
+                    <p class="font-montserrat text-gray-600">Meticulous fittings ensure a flawless, custom fit, culminating in the final masterpiece.</p>
+                </div>
+            </div>
+            
+            <!-- Final CTA -->
+            <div class="text-center mt-16">
+                <p class="font-montserrat text-xl text-gray-900 mb-6 font-light">
+                    Ready to start designing the most important dress you will ever wear?
+                </p>
+                <a href="contact.html" class="inline-block uppercase font-montserrat tracking-widest text-white bg-gray-900 text-base md:text-lg px-12 py-5 transition duration-300 hover:bg-gray-700">
+                    Arrange Your Consultation
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer - Black background, white text, centered logo -->
+    <footer class="bg-black pt-12 pb-6 text-white">
+        <div class="container mx-auto px-4">
+            
+            <!-- Footer Content Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-6 mb-6 border-b border-gray-800">
+                
+                <!-- Logo -->
+                <div class="flex flex-col items-center md:items-start">
+                    <!-- Updated logo path and white logo placeholder for black background -->
+                    <img src="assets/logo3.jpg" alt="SADÉ JANSEN Fashion Designer Logo" class="image-logo mb-4" onerror="this.onerror=null; this.src='https://placehold.co/220x65/000/fff?text=SADÉ+JANSEN'">
+                </div>
+
+                <!-- Quick Links -->
+                <div class="text-center md:text-left">
+                    <h4 class="font-montserrat font-semibold text-lg mb-3">Quick Links:</h4>
+                    <ul class="space-y-2">
+                        <li><a href="faqs.html" class="text-white hover:text-gray-400 transition duration-150">Frequently Asked Questions</a></li>
+                        <li><a href="contact.html" class="text-white hover:text-gray-400 transition duration-150">Book Appointment</a></li>
+                        <li><a href="terms.html" class="text-white hover:text-gray-400 transition duration-150">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+
+                <!-- Follow Us -->
+                <div class="text-center md:text-left">
+                    <h4 class="font-montserrat font-semibold text-lg mb-3">Follow us:</h4>
+                    <div class="flex justify-center md:justify-start space-x-4 text-2xl">
+                        <a href="https://facebook.com/SadeJansenFashionDesigner" target="_blank" class="text-white hover:text-gray-400 transition duration-150" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://instagram.com/sade_jansen_designer" target="_blank" class="text-white hover:text-gray-400 transition duration-150" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright - Centered and white text -->
+            <div class="text-center text-sm font-montserrat text-white pt-6">
+                Copyright &copy; SADÉ JANSEN FASHION DESIGNER | All Rights Reserved | Web Designs by <a href="webbytlotly.netlify.app" target="_blank" class="text-white hover:text-gray-400">Tlotly</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- 1. Standard Booking Appointment Modal/Pop-up (Full screen) -->
+    <div id="booking-modal" class="fixed inset-0 hidden items-center justify-center bg-black/70 z-[10000]">
+        <div class="bg-white p-8 w-full max-w-lg mx-4 relative border border-gray-900">
+            
+            <!-- Close Button (X icon) -->
+            <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-gray-700 hover:text-gray-900 transition" aria-label="Close Modal">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+
+            <h3 class="font-bodoni text-3xl mb-6 text-center">Book Your Private Consultation</h3>
+            
+            <p class="font-montserrat text-gray-600 mb-6 text-center">
+                Ready to start your bespoke design journey? Fill out the form below or proceed to the contact page.
+            </p>
+            
+            <!-- Simplified Form Placeholder -->
+            <form action="contact.html" method="GET" class="space-y-4">
+                <input type="text" placeholder="Your Name" class="w-full p-3 border border-gray-300 focus:border-gray-900 outline-none font-montserrat" required>
+                <input type="email" placeholder="Your Email" class="w-full p-3 border border-gray-300 focus:border-gray-900 outline-none font-montserrat" required>
+                <textarea rows="3" placeholder="Briefly describe your design needs (e.g., Wedding, Evening Wear)" class="w-full p-3 border border-gray-300 focus:border-gray-900 outline-none font-montserrat" required></textarea>
+                
+                <!-- Submit/Contact Button (No curve) -->
+                <button type="submit" class="w-full uppercase font-montserrat tracking-widest text-white bg-gray-900 text-base py-3 transition duration-300 hover:bg-gray-700">
+                    Submit Enquiry
+                </button>
+            </form>
+
+            <div class="mt-4 text-center">
+                <a href="contact.html" class="text-sm text-gray-700 hover:text-gray-900 transition duration-150">
+                    Go directly to Contact Page
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 2. Black Friday Promo Modal (Full-page, black background, HIDDEN by default on this page) -->
+    <div id="promo-modal-overlay" class="fixed inset-0 hidden items-center justify-center bg-black/70 z-[10001]">
+        
+        <!-- Content Container (Used for max-width and centering, but without bg-white) -->
+        <div class="p-8 w-full max-w-xl mx-4 relative text-white">
+            
+            <!-- Close Button (White icon) -->
+            <button onclick="closePromoModal()" class="absolute top-4 right-4 text-white hover:text-gray-300 transition" aria-label="Close Promo Modal">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+
+            <div class="max-w-md mx-auto text-center">
+                <!-- Title: Black Friday! (Bodoni Italic Light, White text) -->
+                <h3 class="font-bodoni-italic text-5xl sm:text-7xl mb-6 text-white font-light leading-none">
+                    Black Friday!
+                </h3>
+                
+                <!-- Description (Montserrat Light, White text) -->
+                <p class="font-montserrat text-base sm:text-lg mb-8 font-light">
+                    Matrics 2026, Get 25% discount this November Only to secure your spot. Attach your email and phone number below. Consultation and deposit secures your spot.
+                </p>
+                
+                <!-- Form (White labels and thin line fields) -->
+                <form onsubmit="event.preventDefault(); submitPromoForm();" class="space-y-8 text-left">
+                    
+                    <div>
+                        <label for="full-names" class="font-montserrat text-base">Full Names*</label>
+                        <!-- Custom class form-line-input-white for white text and line -->
+                        <input type="text" id="full-names" name="full-names" class="form-line-input-white mt-2" required>
+                    </div>
+
+                    <div>
+                        <label for="email-promo" class="font-montserrat text-base">Email*</label>
+                        <input type="email" id="email-promo" name="email-promo" class="form-line-input-white mt-2" required>
+                    </div>
+
+                    <div>
+                        <label for="phone-promo" class="font-montserrat text-base">Phone*</label>
+                        <input type="tel" id="phone-promo" name="phone-promo" class="form-line-input-white mt-2" required>
+                    </div>
+
+                    <!-- Submit Button (White background, black text for contrast) -->
+                    <button type="submit" class="w-full uppercase font-montserrat tracking-widest bg-white text-gray-900 text-base py-3 transition duration-300 hover:bg-gray-200 mt-6">
+                        Secure My Discount
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const collectionsBtn = document.getElementById('mobile-collections-btn');
+        const collectionsSubmenu = document.getElementById('mobile-collections-submenu');
+        
+        // Modal variables
+        const bookingModal = document.getElementById('booking-modal');
+        const promoModalOverlay = document.getElementById('promo-modal-overlay');
+
+        let isMenuOpen = false;
+
+        /** Mobile Menu Functions **/
+        function toggleMobileMenu() {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenuOverlay.classList.remove('hidden');
+                document.body.classList.add('menu-is-open'); 
+                document.body.style.overflow = 'hidden'; 
+            } else {
+                mobileMenuOverlay.classList.add('hidden');
+                document.body.classList.remove('menu-is-open'); 
+                document.body.style.overflow = ''; 
+                // Collections submenu should stay open on mobile if it was clicked, only hide when closing the main menu
+            }
+        }
+
+        /** Standard Booking Modal Functions **/
+        function openBookingModal() {
+            bookingModal.classList.add('modal-active');
+            bookingModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeBookingModal() {
+            bookingModal.classList.remove('modal-active');
+            bookingModal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        // Close standard modal if user clicks outside
+        bookingModal.addEventListener('click', (e) => {
+            if (e.target === bookingModal) {
+                closeBookingModal();
+            }
+        });
+        
+        /** Black Friday Promo Modal Functions **/
+        function closePromoModal() {
+            // Hide the overlay
+            promoModalOverlay.classList.remove('is-visible');
+            promoModalOverlay.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+        
+        // Close promo modal if user clicks outside (on the black overlay)
+        promoModalOverlay.addEventListener('click', (e) => {
+            if (e.target === promoModalOverlay) {
+                closePromoModal();
+            }
+        });
+        
+        function submitPromoForm() {
+            // Placeholder function for form submission logic
+            console.log("Black Friday form submitted!");
+            
+            // Close the modal
+            closePromoModal();
+        }
+
+        // Initialization on Load
+        window.onload = function() {
+            // Mobile Menu Event Listeners
+            mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+
+            // Special handling for mobile collections button in the overlay
+            // We want it to toggle the submenu visibility
+            collectionsBtn.addEventListener('click', () => {
+                collectionsSubmenu.classList.toggle('hidden');
+            });
+
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 768 && isMenuOpen) {
+                    toggleMobileMenu();
+                }
+            });
+            
+            // PROMO MODAL IS NOT SHOWN ON WEDDINGS PAGE LOAD
+        };
+    </script>
+</body>
+</html>

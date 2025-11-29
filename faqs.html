@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Frequently Asked Questions - SADÉ JANSEN</title>
+    
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Load Google Fonts for Prata (Bodoni replacement) and Montserrat Light/Semibold -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Prata:ital@0;1&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Define custom font classes */
+        .font-bodoni { 
+            font-family: 'Prata', serif; 
+            font-weight: 300; 
+            letter-spacing: 0.05em; 
+        }
+        .font-bodoni-italic {
+            font-family: 'Prata', serif;
+            font-style: italic;
+            font-weight: 300;
+        }
+        .font-montserrat { 
+            font-family: 'Montserrat', sans-serif; 
+            font-weight: 300; 
+        }
+        .font-montserrat-semibold { 
+            font-family: 'Montserrat', sans-serif; 
+            font-weight: 600; 
+        }
+
+        /* Header/Mobile Menu Styles (Reused for consistency) */
+        .icon-line {
+            height: 2px; 
+            background-color: black;
+            transition: all 0.3s ease-in-out;
+            position: absolute;
+            width: 139%;
+            left: 0;
+        }
+        #mobile-menu-btn .icon-wrapper {
+            width: 24px;
+            height: 24px;
+            position: relative; 
+            position: absolute;
+            right: 0; 
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        #mobile-menu-btn .line-top { top: 0px; }
+        #mobile-menu-btn .line-middle { top: 11px; }
+        #mobile-menu-btn .line-bottom { top: 22px; }
+        .menu-is-open #mobile-menu-btn .line-top {
+            transform: translateY(11px) rotate(45deg); 
+        }
+        .menu-is-open #mobile-menu-btn .line-middle {
+            opacity: 0; 
+        }
+        .menu-is-open #mobile-menu-btn .line-bottom {
+            transform: translateY(-11px) rotate(-45deg); 
+        }
+        .shop-sade-link {
+            font-family: 'Prata', serif;
+            font-weight: 300;
+            font-style: italic;
+        }
+        .image-logo {
+            max-height: 55px; 
+            width: auto;
+        }
+        @media (min-width: 768px) { 
+            .image-logo {
+                max-height: 65px; 
+            }
+        }
+
+        /* Custom Accordion/FAQ Styles */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 500px; /* Large enough for content */
+            padding-top: 1.5rem; /* pt-6 */
+        }
+        .faq-icon {
+            transition: transform 0.3s ease-in-out;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg); /* Plus sign becomes an X or a rotated line */
+        }
+    </style>
+</head>
+<body class="font-montserrat text-gray-900 antialiased bg-white">
+
+    <!-- Primary Header -->
+    <header class="sticky top-0 bg-white px-4 py-3 border-b border-gray-200" style="z-index:9998;">
+        <div class="container mx-auto flex items-center justify-between relative">
+            
+            <!-- Logo (Image) -->
+            <a href="index.html" class="flex items-center">
+                <img src="assets/logo1.jpg" alt="SADÉ JANSEN Fashion Designer Logo" class="image-logo" onerror="this.onerror=null; this.src='https://placehold.co/220x65/fff/333?text=SADÉ+JANSEN'">
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex items-center space-x-8 lg:space-x-12">
+                <a href="index.html" class="uppercase text-sm hover:text-gray-500 font-montserrat transition duration-150 ease-in-out">Home</a>
+                <a href="about.html" class="uppercase text-sm hover:text-gray-500 font-montserrat transition duration-150 ease-in-out">About</a>
+                
+                <!-- Collections Dropdown -->
+                <div class="group relative">
+                    <button class="uppercase text-sm text-gray-900 font-montserrat flex items-center transition duration-150 ease-in-out">
+                        Collections 
+                        <svg class="ml-1 w-3 h-3 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="absolute hidden group-hover:block pt-3 min-w-[180px] z-50 left-1/2 transform -translate-x-1/2">
+                        <div class="bg-white ring-1 ring-black ring-opacity-5 p-2 font-montserrat text-center border border-gray-200">
+                            <a href="weddings.html" class="block px-4 py-2 text-sm uppercase text-gray-900 hover:text-gray-500 transition duration-100">Weddings</a>
+                            <a href="matric-farewell.html" class="block px-4 py-2 text-sm uppercase text-gray-900 hover:bg-gray-100 transition duration-100">Matric Farewell</a>
+                            <a href="evening-wear.html" class="block px-4 py-2 text-sm uppercase text-gray-900 hover:bg-gray-100 transition duration-100">Evening Wear</a>
+                            <a href="customs.html" class="block px-4 py-2 text-sm uppercase text-gray-900 hover:bg-gray-100 transition duration-100">Custom Designs</a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="shopsade/index.html" class="text-sm hover:text-gray-500 shop-sade-link transition duration-150 ease-in-out">Shop SADÉ</a>
+                <a href="blog.html" class="uppercase text-sm hover:text-gray-500 font-montserrat transition duration-150 ease-in-out">Blog</a>
+                <a href="contact.html" class="uppercase text-sm hover:text-gray-500 font-montserrat transition duration-150 ease-in-out">Contact</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 relative w-[140px] h-12" style="z-index:9999;" aria-label="Toggle Menu">
+                <div class="icon-wrapper">
+                    <div class="icon-line line-top"></div>
+                    <div class="icon-line line-middle"></div>
+                    <div class="icon-line line-bottom"></div>
+                </div>
+            </button>
+        </div>
+    </header>
+
+    <!-- Full-Screen Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-white z-50 hidden transition-all duration-300 ease-in-out flex flex-col items-center pt-24 pb-8 overflow-y-auto">
+        <nav class="text-center space-y-6 w-full max-w-sm">
+            <a href="index.html" class="block text-3xl font-montserrat uppercase text-gray-900 hover:text-gray-500" onclick="toggleMobileMenu()">Home</a>
+            <a href="about.html" class="block text-3xl font-montserrat uppercase text-gray-900 hover:text-gray-500" onclick="toggleMobileMenu()">About</a>
+            <div class="text-center">
+                <button id="mobile-collections-btn" class="text-3xl font-montserrat uppercase text-gray-900 mb-2 transition duration-150">
+                    Collections
+                </button>
+                <div id="mobile-collections-submenu" class="space-y-3 mt-3 hidden"> 
+                    <a href="weddings.html" class="block text-xl font-montserrat uppercase text-gray-900 hover:text-gray-500 transition duration-150" onclick="toggleMobileMenu()">Weddings</a>
+                    <a href="matric-farewell.html" class="block text-xl font-montserrat uppercase text-gray-900 hover:text-gray-500 transition duration-150" onclick="toggleMobileMenu()">Matric Farewell</a>
+                    <a href="evening-wear.html" class="block text-xl font-montserrat uppercase text-gray-900 hover:text-gray-500 transition duration-150" onclick="toggleMobileMenu()">Evening Wear</a>
+                    <a href="customs.html" class="block text-xl font-montserrat uppercase text-gray-500 transition duration-150" onclick="toggleMobileMenu()">Custom Designs</a>
+                </div>
+            </div>
+            <a href="shopsade/index.html" class="block text-3xl text-gray-900 hover:text-gray-500 shop-sade-link" onclick="toggleMobileMenu()">Shop SADÉ</a>
+            <a href="blog.html" class="block text-3xl font-montserrat uppercase text-gray-900 hover:text-gray-500" onclick="toggleMobileMenu()">Blog</a>
+            <a href="contact.html" class="block text-3xl font-montserrat uppercase text-gray-900 hover:text-gray-500" onclick="toggleMobileMenu()">Contact</a>
+        </nav>
+        <div class="mt-6 flex space-x-4 text-2xl">
+            <a href="https://facebook.com/SadeJansenFashionDesigner" target="_blank" class="text-black hover:text-gray-500" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://instagram.com/sade_jansen_designer" target="_blank" class="text-black hover:text-gray-500" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+    
+    <!-- Hero Title Section -->
+    <section class="bg-white py-12 md:py-16 border-b border-gray-200">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="font-bodoni text-4xl sm:text-5xl lg:text-6xl text-gray-900 font-light mb-4">
+                Frequently Asked Questions
+            </h1>
+            <p class="font-montserrat text-lg text-gray-600 max-w-3xl mx-auto">
+                Find quick answers about our custom design process, appointments, pricing, and timelines.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content: FAQ Accordion -->
+    <main class="container mx-auto px-4 py-16 md:py-24 max-w-4xl">
+        
+        <div id="faq-container" class="space-y-4 md:space-y-6">
+
+            <!-- FAQ Item 1 -->
+            <div class="faq-item border border-gray-200 rounded-lg overflow-hidden transition duration-300">
+                <button class="faq-question w-full flex justify-between items-center p-4 md:p-6 text-left text-lg font-montserrat-semibold hover:bg-gray-50 transition duration-150" data-faq-id="1" aria-expanded="false">
+                    Do I need to book an appointment for a consultation?
+                    <span class="faq-icon text-xl text-gray-500"><i class="fas fa-plus"></i></span>
+                </button>
+                <div class="faq-answer px-4 md:px-6">
+                    <p class="text-gray-700 font-montserrat">
+                        Yes, all consultations for custom design services are strictly by appointment only. This ensures that you have dedicated, uninterrupted time with Sadé to discuss your vision, measurements, and design details. You can book via the contact form or our booking link.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="faq-item border border-gray-200 rounded-lg overflow-hidden transition duration-300">
+                <button class="faq-question w-full flex justify-between items-center p-4 md:p-6 text-left text-lg font-montserrat-semibold hover:bg-gray-50 transition duration-150" data-faq-id="2" aria-expanded="false">
+                    What is the average price range for a custom gown?
+                    <span class="faq-icon text-xl text-gray-500"><i class="fas fa-plus"></i></span>
+                </button>
+                <div class="faq-answer px-4 md:px-6">
+                    <p class="text-gray-700 font-montserrat">
+                        The pricing for a custom garment varies significantly based on factors like fabric choice (silk, lace, beading), design complexity, and required man-hours. Simple custom designs typically start from **R8,000**, while complex wedding or evening gowns can range higher. A detailed quote is provided after your initial consultation.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="faq-item border border-gray-200 rounded-lg overflow-hidden transition duration-300">
+                <button class="faq-question w-full flex justify-between items-center p-4 md:p-6 text-left text-lg font-montserrat-semibold hover:bg-gray-50 transition duration-150" data-faq-id="3" aria-expanded="false">
+                    How far in advance should I book my custom wedding dress?
+                    <span class="faq-icon text-xl text-gray-500"><i class="fas fa-plus"></i></span>
+                </button>
+                <div class="faq-answer px-4 md:px-6">
+                    <p class="text-gray-700 font-montserrat">
+                        For custom bridal gowns, we highly recommend booking **6 to 12 months in advance** of your wedding date. This ensures enough time for sourcing specific materials, pattern development, multiple fittings, and addressing any unexpected delays.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div class="faq-item border border-gray-200 rounded-lg overflow-hidden transition duration-300">
+                <button class="faq-question w-full flex justify-between items-center p-4 md:p-6 text-left text-lg font-montserrat-semibold hover:bg-gray-50 transition duration-150" data-faq-id="4" aria-expanded="false">
+                    What is your payment structure for custom work?
+                    <span class="faq-icon text-xl text-gray-500"><i class="fas fa-plus"></i></span>
+                </button>
+                <div class="faq-answer px-4 md:px-6">
+                    <p class="text-gray-700 font-montserrat">
+                        Our standard payment structure is: a **non-refundable 50% deposit** to secure the commission and start the process, and the **remaining 50% balance** is due upon the final fitting and before the garment is collected.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 5 -->
+            <div class="faq-item border border-gray-200 rounded-lg overflow-hidden transition duration-300">
+                <button class="faq-question w-full flex justify-between items-center p-4 md:p-6 text-left text-lg font-montserrat-semibold hover:bg-gray-50 transition duration-150" data-faq-id="5" aria-expanded="false">
+                    Can I bring my own fabric?
+                    <span class="faq-icon text-xl text-gray-500"><i class="fas fa-plus"></i></span>
+                </button>
+                <div class="faq-answer px-4 md:px-6">
+                    <p class="text-gray-700 font-montserrat">
+                        We generally prefer to source the highest quality fabrics ourselves to guarantee the final result. However, we are open to discussing the use of client-supplied fabric, provided the designer approves its quality and suitability for the specific design.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 6 -->
+            <div class="faq-item border border-gray-200 rounded-lg overflow-hidden transition duration-300">
+                <button class="faq-question w-full flex justify-between items-center p-4 md:p-6 text-left text-lg font-montserrat-semibold hover:bg-gray-50 transition duration-150" data-faq-id="6" aria-expanded="false">
+                    How many fittings are usually required for a custom design?
+                    <span class="faq-icon text-xl text-gray-500"><i class="fas fa-plus"></i></span>
+                </button>
+                <div class="faq-answer px-4 md:px-6">
+                    <p class="text-gray-700 font-montserrat">
+                        For most complex garments, you can expect between **3 to 5 fittings**. These fittings include the toile/mock-up fitting, the first fabric fitting, and a final fitting for minor adjustments. The exact number depends on the garment's complexity.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 7 -->
+            <div class="faq-item border border-gray-200 rounded-lg overflow-hidden transition duration-300">
+                <button class="faq-question w-full flex justify-between items-center p-4 md:p-6 text-left text-lg font-montserrat-semibold hover:bg-gray-50 transition duration-150" data-faq-id="7" aria-expanded="false">
+                    What should I bring to my first consultation?
+                    <span class="faq-icon text-xl text-gray-500"><i class="fas fa-plus"></i></span>
+                </button>
+                <div class="faq-answer px-4 md:px-6">
+                    <p class="text-gray-700 font-montserrat">
+                        Please bring any visual references (photos, sketches), color swatches, and most importantly, the exact **undergarments and shoes** you plan to wear with the final garment. Knowing your budget is also helpful for fabric selection.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 8 -->
+            <div class="faq-item border border-gray-200 rounded-lg overflow-hidden transition duration-300">
+                <button class="faq-question w-full flex justify-between items-center p-4 md:p-6 text-left text-lg font-montserrat-semibold hover:bg-gray-50 transition duration-150" data-faq-id="8" aria-expanded="false">
+                    Can I make changes to the design after paying the deposit?
+                    <span class="faq-icon text-xl text-gray-500"><i class="fas fa-plus"></i></span>
+                </button>
+                <div class="faq-answer px-4 md:px-6">
+                    <p class="text-gray-700 font-montserrat">
+                        Major changes (e.g., changing the silhouette entirely) after the design is approved and the deposit is paid may not be possible or will incur substantial additional costs and delay the completion date. Minor adjustments are expected and managed during fittings.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 9 -->
+            <div class="faq-item border border-gray-200 rounded-lg overflow-hidden transition duration-300">
+                <button class="faq-question w-full flex justify-between items-center p-4 md:p-6 text-left text-lg font-montserrat-semibold hover:bg-gray-50 transition duration-150" data-faq-id="9" aria-expanded="false">
+                    Do you offer rental services for gowns?
+                    <span class="faq-icon text-xl text-gray-500"><i class="fas fa-plus"></i></span>
+                </button>
+                <div class="faq-answer px-4 md:px-6">
+                    <p class="text-gray-700 font-montserrat">
+                        SADÉ JANSEN focuses exclusively on creating unique, bespoke, custom-made garments for purchase by the client. We do not currently offer a rental service. Please check our 'Shop SADÉ' page for limited ready-to-wear collections.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 10 -->
+            <div class="faq-item border border-gray-200 rounded-lg overflow-hidden transition duration-300">
+                <button class="faq-question w-full flex justify-between items-center p-4 md:p-6 text-left text-lg font-montserrat-semibold hover:bg-gray-50 transition duration-150" data-faq-id="10" aria-expanded="false">
+                    What if my body measurements change before the final fitting?
+                    <span class="faq-icon text-xl text-gray-500"><i class="fas fa-plus"></i></span>
+                </button>
+                <div class="faq-answer px-4 md:px-6">
+                    <p class="text-gray-700 font-montserrat">
+                        The design and quote are based on initial measurements. While we account for normal fluctuation, significant body changes (e.g., due to weight loss/gain) after the first fitting may require extensive re-working and will result in an additional alteration fee as per our Terms and Conditions.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black pt-12 pb-6 text-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-6 mb-6 border-b border-gray-800">
+                <div class="flex flex-col items-center md:items-start">
+                    <img src="assets/logo3.jpg" alt="SADÉ JANSEN Fashion Designer Logo" class="image-logo mb-4" onerror="this.onerror=null; this.src='https://placehold.co/220x65/000/fff?text=SADÉ+JANSEN'">
+                </div>
+                <div class="text-center md:text-left">
+                    <h4 class="font-montserrat font-semibold text-lg mb-3">Quick Links:</h4>
+                    <ul class="space-y-2">
+                        <li><a href="faqs.html" class="text-white hover:text-gray-400 transition duration-150">Frequently Asked Questions</a></li>
+                        <li><a href="contact.html" class="text-white hover:text-gray-400 transition duration-150">Book Appointment</a></li>
+                        <li><a href="terms.html" class="text-white hover:text-gray-400 transition duration-150">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="text-center md:text-left">
+                    <h4 class="font-montserrat font-semibold text-lg mb-3">Follow us:</h4>
+                    <div class="flex justify-center md:justify-start space-x-4 text-2xl">
+                        <a href="https://facebook.com/SadeJansenFashionDesigner" target="_blank" class="text-white hover:text-gray-400 transition duration-150" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com/sade_jansen_designer" target="_blank" class="text-white hover:text-gray-400 transition duration-150" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center text-sm font-montserrat text-white pt-6">
+                Copyright &copy; SADÉ JANSEN FASHION DESIGNER | All Rights Reserved | Web Designs by <a href="webbytlotly.netlify.app" target="_blank" class="text-white hover:text-gray-400">Tlotly</a>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const collectionsBtn = document.getElementById('mobile-collections-btn');
+        const collectionsSubmenu = document.getElementById('mobile-collections-submenu');
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        let isMenuOpen = false;
+
+        function toggleMobileMenu() {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenuOverlay.classList.remove('hidden');
+                document.body.classList.add('menu-is-open'); 
+                document.body.style.overflow = 'hidden'; 
+            } else {
+                mobileMenuOverlay.classList.add('hidden');
+                document.body.classList.remove('menu-is-open'); 
+                document.body.style.overflow = ''; 
+                collectionsSubmenu.classList.add('hidden');
+            }
+        }
+
+        function toggleFaq(event) {
+            const button = event.currentTarget;
+            const item = button.closest('.faq-item');
+            const isActive = item.classList.contains('active');
+
+            // Close all other active items
+            document.querySelectorAll('.faq-item.active').forEach(activeItem => {
+                if (activeItem !== item) {
+                    activeItem.classList.remove('active');
+                    activeItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            // Toggle the clicked item
+            if (!isActive) {
+                item.classList.add('active');
+                button.setAttribute('aria-expanded', 'true');
+            } else {
+                item.classList.remove('active');
+                button.setAttribute('aria-expanded', 'false');
+            }
+        }
+
+        window.onload = function() {
+            // Setup Mobile Menu Listeners
+            mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+            collectionsBtn.addEventListener('click', () => {
+                collectionsSubmenu.classList.toggle('hidden');
+            });
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 768 && isMenuOpen) {
+                    toggleMobileMenu();
+                }
+            });
+
+            // Setup FAQ Accordion Listeners
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', toggleFaq);
+            });
+        };
+    </script>
+</body>
+</html>
