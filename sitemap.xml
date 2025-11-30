@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://sadefashiondesigner.co.za/index.html</loc>
+    <priority>1.00</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://sadefashiondesigner.co.za/about.html</loc>
+    <priority>0.90</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://sadefashiondesigner.co.za/contact.html</loc>
+    <priority>0.90</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Extra pages found in your nav/menu -->
+  <url>
+    <loc>https://sadefashiondesigner.co.za/weddings.html</loc>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://sadefashiondesigner.co.za/matric-farewell.html</loc>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://sadefashiondesigner.co.za/evening-wear.html</loc>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://sadefashiondesigner.co.za/customs.html</loc>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://sadefashiondesigner.co.za/blog.html</loc>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://sadefashiondesigner.co.za/faqs.html</loc>
+    <priority>0.60</priority>
+  </url>
+
+  <url>
+    <loc>https://sadefashiondesigner.co.za/terms.html</loc>
+    <priority>0.50</priority>
+  </url>
+
+  <!-- Shop SADÉ subfolder -->
+  <url>
+    <loc>https://sadefashiondesigner.co.za/shopsade/index.html</loc>
+    <priority>0.80</priority>
+  </url>
+
+</urlset>
